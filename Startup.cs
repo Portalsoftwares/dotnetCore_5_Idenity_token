@@ -68,7 +68,7 @@ namespace dotnetClaimAuthorization
 
 
             });
-       
+
             //    services.AddAuthorization(option=>{
             //        option.AddPolicy("AdminPolicy",policy=>{policy.RequireRole("Admin","User")});
             //    });
@@ -87,7 +87,7 @@ namespace dotnetClaimAuthorization
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = ".NET Core 5 ", Version = "v1",Description="This test description" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = ".NET Core 5 ", Version = "v1", Description = "This test description" });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,
@@ -97,7 +97,7 @@ namespace dotnetClaimAuthorization
                     BearerFormat = "JWT",
                     Scheme = "bearer"
                 });
-              c.AddSecurityRequirement(new OpenApiSecurityRequirement{
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement{
                      {
                          new OpenApiSecurityScheme{
                              Reference=new OpenApiReference  {
@@ -110,11 +110,11 @@ namespace dotnetClaimAuthorization
                      }
 
               });
-             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-        var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-        c.IncludeXmlComments(xmlPath);
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
-    
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
